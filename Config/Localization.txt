@@ -1,0 +1,3 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english,Context / Alternate Text,german,latam,french,italian,japanese,koreana,polish,brazilian,russian,turkish,schinese,tchinese,spanish
+zzsoloWoodBurningStove,blocks,Container,,,Wood Burning Stove
+zzsoloWoodBurningStoveDesc,blocks,"A working stove that can be used to cook food and some chemicals in a safe environment."

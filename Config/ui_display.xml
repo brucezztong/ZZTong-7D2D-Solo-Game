@@ -1,0 +1,14 @@
+<ui_display_info>
+
+        <append xpath="/ui_display_info">
+
+                <!-- Connecting the Wood Burning Stove to Cooking in the same manner as a Campfire -->
+                <!-- This configuration should duplicate a vanilla campfire. -->
+                <crafting_category_list display_type="zzsoloWoodBurningStove">
+                        <crafting_category name="CFFood/Cooking" icon="ui_game_symbol_fork" display_name="lblCategoryFood" />
+                        <crafting_category name="CFDrink/Cooking" icon="ui_game_symbol_thirst" display_name="lblCategoryDrink" />
+                        <crafting_category name="CFChemicals" icon="ui_game_symbol_chemistry" display_name="lblCategoryChemicals" />
+                </crafting_category_list>
+        </append>
+
+</ui_display_info>

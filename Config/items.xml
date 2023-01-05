@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<items>
+
+    <!-- Change Jar River Water (Murky Water) Crafting Time to be longer. Boiling takes time. -->
+    <setattribute xpath="/items/item[@name='drinkJarRiverWater']/property[@name='CraftingIngredientTime']" name="value">30</setattribute>
+
+    <!-- Change Jar Stacking to 8. There are 8 pints in a gallon. 1 Gallon to an inventory spot. -->
+    <setattribute xpath="/items/item[@name='drinkJarEmpty']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarRiverWater']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarBoiledWater']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarPureMineralWater']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarYuccaJuice']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarGoldenRodTea']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarRedTea']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkYuccaJuiceSmoothie']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarCoffee']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarBeer']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarGrandpasMoonshine']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarGrandpasAwesomeSauce']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarGrandpasLearningElixir']/property[@name='Stacknumber']" name="value">8</setattribute>
+    <setattribute xpath="/items/item[@name='drinkJarGrandpasForgettingElixir']/property[@name='Stacknumber']" name="value">8</setattribute>
+
+    <!-- Give Boiled Water a (smaller) chance of Dysentery. -->
+    <insertAfter xpath="/items/item[@name='drinkJarBoiledWater']/effect_group[@name='Drink Tier 0/1']/triggered_effect[@buff='buffProcessConsumables']">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="6"/>
+        <display_value name="dDysenteryRisk" value=".06"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchDrink">
+            <requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+        </triggered_effect>
+    </insertAfter>
+
+    <!-- Lower the benefits of Pure Mineral Water. This is the new potable water. -->
+    <setattribute xpath="/items/item[@name='drinkJarPureMineralWater']/effect_group[@name='Drink Tier Found']/triggered_effect[@cvar='$waterAmountAdd']" name="value">40</setattribute>
+
+    <!-- Honey: Decrease ability to cure infection. -->
+    <setattribute xpath="/items/item[@name='foodHoney']/effect_group/display_value[@name='dCureInfection']" name="value">.01</setattribute>
+    <setattribute xpath="/items/item[@name='foodHoney']/effect_group/triggered_effect[@cvar='$buffInfectionAddCurePerc']" name="value">1</setattribute>
+
+    <!-- Pumpkin Bread: Boost the FOOD amount given. -->
+    <setattribute xpath="/items/item[@name='foodPumpkinBread']/effect_group[@name='Food Tier 2']/triggered_effect[@cvar='$foodAmountAdd']" name="value">20</setattribute>
+
+</items>
