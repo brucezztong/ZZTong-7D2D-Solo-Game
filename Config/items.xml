@@ -2,9 +2,6 @@
 
 <items>
 
-    <!-- Change Jar River Water (Murky Water) Crafting Time to be longer. Boiling takes time. -->
-    <setattribute xpath="/items/item[@name='drinkJarRiverWater']/property[@name='CraftingIngredientTime']" name="value">30</setattribute>
-
     <!-- Change Jar Stacking to 8. There are 8 pints in a gallon. 1 Gallon to an inventory spot. -->
     <setattribute xpath="/items/item[@name='drinkJarEmpty']/property[@name='Stacknumber']" name="value">8</setattribute>
     <setattribute xpath="/items/item[@name='drinkJarRiverWater']/property[@name='Stacknumber']" name="value">8</setattribute>

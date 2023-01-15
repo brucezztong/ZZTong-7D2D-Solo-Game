@@ -1,5 +1,13 @@
 <entity_classes>
 
+    <!-- Slow down crafting times across the board: x10 Longer. -->
+    <!-- Thanks to BFT2020 for figuring this one out. -->
+
+    <append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group">
+        <passive_effect name="CraftingTime" operation="perc_add" value="0.8"/>
+    </append>
+
+
     <!-- Make Deer (Stag, Doe) faster, tougher, more perceptive and with more meat. -->
     <!-- The goal here is to make them a more difficult hunting challenge, but worthy of the reward. -->
 
